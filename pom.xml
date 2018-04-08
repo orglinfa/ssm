@@ -10,6 +10,7 @@
   <!--配置spring版本属性-->
   <properties>
     <spring.version>5.0.4.RELEASE</spring.version>
+    <dao.target.dir>src/main/java</dao.target.dir>
   </properties>
   <dependencies>
     <!--test-->
@@ -46,6 +47,50 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.45</version>
+    </dependency>
+    <!--mybatis jar-->
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis</artifactId>
+      <version>3.4.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis</groupId>
+      <artifactId>mybatis-spring</artifactId>
+      <version>1.3.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/c3p0/c3p0 -->
+    <dependency>
+      <groupId>c3p0</groupId>
+      <artifactId>c3p0</artifactId>
+      <version>0.9.1.2</version>
+    </dependency>
+<!--    <dependency>
+      <groupId>org.mybatis.generator</groupId>
+      <artifactId>mybatis-generator</artifactId>
+      <version>1.3.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.mybatis.generator</groupId>
+      <artifactId>mybatis-generator-core</artifactId>
+      <version>1.3.2</version>
+    </dependency>-->
+     <!--mybatis page 分页原理是通过aop截获我们的sql的时候把相关数据再执行一次-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>5.0.3</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.github.miemiedev/mybatis-paginator -->
+    <dependency>
+      <groupId>com.github.miemiedev</groupId>
+      <artifactId>mybatis-paginator</artifactId>
+      <version>1.2.17</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.jsqlparser</groupId>
+      <artifactId>jsqlparser</artifactId>
+      <version>1.0</version>
     </dependency>
     <!--spring framerwork-->
     <dependency>
@@ -104,8 +149,47 @@
       <artifactId>commons-lang3</artifactId>
       <version>3.5</version>
     </dependency>
+    <!--log jar-->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>1.7.25</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>log4j-over-slf4j</artifactId>
+      <version>1.7.25</version>
+    </dependency>
   </dependencies>
+
   <build>
     <finalName>ssm</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.mybatis.generator</groupId>
+        <artifactId>mybatis-generator-maven-plugin</artifactId>
+        <version>1.3.5</version>
+        <configuration>
+          <verbose>true</verbose>
+          <overwrite>true</overwrite>
+          <configurationFile>./generatorConfig.xml</configurationFile>
+        </configuration>
+        <executions>
+          <execution>
+            <id>Generator Mybatis ArtifactId</id>
+<!--            <goals>
+              <goal>generate</goal>
+            </goals>-->
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>2.3.5</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
   </build>
 </project>
