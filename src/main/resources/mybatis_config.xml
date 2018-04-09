@@ -18,8 +18,8 @@
             <dataSource type=""></dataSource>
         </environment>-->
     </environments>
-    <mappers>
-      <!--  &lt;!&ndash;<mapper resource="org/sqlmap/BlogMapper.xml"/>&ndash;&gt;
-       <mapper resource="org/ssm/sqlmap/UserInfoMapper.xml"/>-->
-    </mappers>
+<!--    <mappers>
+      <mapper resource="org/sqlmap/BlogMapper.xml"/>
+       <mapper resource="org/ssm/sqlmap/UserInfoMapper.xml"/>
+    </mappers>-->
 </configuration>
