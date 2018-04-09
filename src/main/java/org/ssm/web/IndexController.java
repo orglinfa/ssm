@@ -19,7 +19,14 @@ public class IndexController {
         UserInfo userInfo=new UserInfo();
         userInfo.setId("1");
         userInfo.setUsername("test");
-        UserInfoMapper.insert( userInfo);
+        System.out.println(UserInfoMapper);
+        try{
+            UserInfoMapper.insertSelective( userInfo);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        System.out.println("=====================");
         return "index str";
     }
 }
