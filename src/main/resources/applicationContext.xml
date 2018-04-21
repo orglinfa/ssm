@@ -20,7 +20,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="typeAliasesPackage" value="classpath*:org.ssm.pojo"/>
         <property name="configLocation" value="classpath:mybatis_config.xml"/>
-        <property name="mapperLocations" value="classpath*:/org/ssm/dao/config/*.xml"/>
+        <property name="mapperLocations" value="classpath*:/sqlmap/**.xml"/>
     </bean>
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="org.ssm.dao"/>
